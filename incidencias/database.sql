@@ -21,3 +21,51 @@ CREATE TABLE IF NOT EXISTS incidencia (
         FOREIGN KEY (id_usuario)
         REFERENCES usuario(id_usuario)
 );
+
+-- USUARIOS 
+INSERT INTO usuario (username, password, nombre)
+VALUES
+    ('pedro', 'Pedro123', 'Pedro Lopez'),
+    ('maria', 'Maria123', 'Maria Torres');
+
+-- INCIDENCIAS DE PEDRO
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Error en facturacion',
+    'El total de la factura no coincide con los detalles.',
+    'alta',
+    id_usuario
+FROM usuario
+WHERE username = 'pedro';
+
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Problema al imprimir',
+    'El sistema no permite imprimir el reporte.',
+    'media',
+    id_usuario
+FROM usuario
+WHERE username = 'pedro';
+
+-- INCIDENCIAS DE MARIA
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Error al iniciar el sistema',
+    'La aplicacion muestra un error al ingresar.',
+    'alta',
+    id_usuario
+FROM usuario
+WHERE username = 'maria';
+
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Solicitud de mejora',
+    'Se solicita mejorar la presentacion de los reportes.',
+    'baja',
+    id_usuario
+FROM usuario
+WHERE username = 'maria';
