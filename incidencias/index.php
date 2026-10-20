@@ -5,8 +5,6 @@ session_start();
 // 2. Traer la conexión y la clase BaseDatos
 require_once 'conexion.php';
 
-$baseDatos = new BaseDatos();
-
 $mensaje_error = "";
 
 // 3. Verificar si el formulario fue enviado
@@ -57,12 +55,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             <form method ="POST" action = "">
                 <fieldset>
                     <h2> Usuario </h2>
-                    <br>
                     <input type ="text" name = "username" value ="" >
                     <br>
                     
                     <h2> Clave </h2>
-                    <br>
                     <input type ="password" name = "password" value ="" >
                     <br>
                     <br>
