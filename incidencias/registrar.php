@@ -1,40 +1,11 @@
 <?php
-#session_start();
-#if(!isset($_SESSION['nombre']) || !isset($_SESSION['clave'])){
-#    header("Location: index.php");
-#    exit;
-#}
+session_start();
 
-
-
-
-if($_SERVER["REQUEST_METHOD"] == 'POST'){
-
-    $nombre = is_string($_POST['nombre'] ?? null) ? trim($_POST['nombre']) : '';
-
-    if($nombre === '' || preg_match('/[$\\\\=]/', $nombre)){
-        header('Location: 400.php');
-        exit;
-    }
-
-    $descripcion = is_string($_POST['descripcion']??null)? trim($_POST['descripcion']):'';
-    if ($descripcion === '' || preg_match('/[$\[\]\\\\=]/', $descripcion)){
-        header('Location: 400.php');
-        exit;
-    }
-
-    $prioridad = $_POST['prioridad'] ?? '';
-
-    if(!in_array($prioridad, ['Alta', 'Media', 'Baja'], true)){
-        header('Location: 400.php');
-        exit;
-    }
+if(!isset($_SESSION['id_usuario'])){
+    header("Location: index.php");
+    exit;
 }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html >
@@ -46,32 +17,34 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
 </head>
 <body>
 
-<!-- <h2>Usuario Logeado: <?php #echo $_SESSION['nombre']; ?></h2> -->
     <h1>Registro de Incidencia</h1>
+    
+    <h2>Usuario Logeado: <?php echo $_SESSION['nombre_usuario']; ?></h2>
     <p><a href="cerrar_sesion.php">Cerrar Sesión</a></p>
     <a href="listar.php">Volver al listado</a>
     <br>
     <br>
-    <form action="registrar.php" method="POST">
+    <p>Todos los campos son obligatorios.</p>
+    <form action="procesar_registro.php" method="POST">
         <fieldset>
                 
             <label for= "nombre"> Nombre: </label>
-            <input type = "text" id = "nombre" name = "nombre"
-            required pattern="[^$\\=]+" 
-            title = "El campo nombre no admite caracteres $ \ ="><br><br>
+            <input type= "text" id= "nombre" name = "nombre">
+            <br>
+            <p>El campo nombre no admite caracteres $ \ =.</p>
 
 
             <label for = "descripcion"> Descripción: </label>
-            <input type = "text" id= "descripcion" name = "descripcion"
-            required pattern = "[^$\[\]\\=]+" 
-            title ="El campo descripción no admite caracteres $ [ ] \ =">
+            <input type = "text" id= "descripcion" name = "descripcion">
+            <br>
+            <p>El campo descripción no admite caracteres $ [ ] \ =.</p>
 
             <label for="cmbPrioridad">Prioridad: </label>
-            <select name="prioridad" id="cmbPrioridad" required>
+            <select name="prioridad" id="cmbPrioridad">
                 <option value = ""> </option>
-                <option value="Alta">Alta</option>
-                <option value ="Media"> Media </option>
-                <option value = "Baja"> Baja </option>
+                <option value="alta">Alta</option>
+                <option value ="media"> Media </option>
+                <option value = "baja"> Baja </option>
             </select>
             <input type = "submit" value = "Enviar">
         </fieldset>    
