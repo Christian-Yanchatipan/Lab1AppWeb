@@ -27,6 +27,14 @@ INSERT INTO usuario (username, password, nombre)
 VALUES
     ('pedro', 'Pedro123', 'Pedro Lopez'),
     ('maria', 'Maria123', 'Maria Torres');
+    ('carlos',  'Carlos123',  'Carlos Mendoza'),
+    ('ana',     'Ana123',     'Ana Ruiz'),
+    ('luis',    'Luis123',    'Luis Paredes'),
+    ('sofia',   'Sofia123',   'Sofia Herrera'),
+    ('jorge',   'Jorge123',   'Jorge Castillo'),
+    ('lucia',   'Lucia123',   'Lucia Vega'),
+    ('diego',   'Diego123',   'Diego Morales'),
+    ('valeria', 'Valeria123', 'Valeria Ramos');
 
 -- INCIDENCIAS DE PEDRO
 INSERT INTO incidencia
@@ -69,3 +77,69 @@ SELECT
     id_usuario
 FROM usuario
 WHERE username = 'maria';
+
+-- INCIDENCIAS DE CARLOS
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Lentitud en el sistema de inventario',
+    'Las consultas de inventario tardan mas de un minuto en cargar.',
+    'media',
+    id_usuario
+FROM usuario
+WHERE username = 'carlos';
+
+-- INCIDENCIAS DE ANA
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'No llegan correos de notificacion',
+    'Los correos de confirmacion de pedidos no se envian a los clientes.',
+    'alta',
+    id_usuario
+FROM usuario
+WHERE username = 'ana';
+
+-- INCIDENCIAS DE LUIS
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Error al exportar a Excel',
+    'Al exportar el reporte de ventas el archivo se descarga vacio.',
+    'media',
+    id_usuario
+FROM usuario
+WHERE username = 'luis';
+
+-- INCIDENCIAS DE SOFIA
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Cuenta de usuario bloqueada',
+    'Despues de tres intentos fallidos la cuenta queda bloqueada y no se puede desbloquear.',
+    'alta',
+    id_usuario
+FROM usuario
+WHERE username = 'sofia';
+
+-- INCIDENCIAS DE JORGE
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Fechas incorrectas en reportes',
+    'Los reportes mensuales muestran la fecha del dia anterior.',
+    'baja',
+    id_usuario
+FROM usuario
+WHERE username = 'jorge';
+
+-- INCIDENCIAS DE LUCIA
+INSERT INTO incidencia
+    (nombre, descripcion, prioridad, id_usuario)
+SELECT
+    'Cambio de color del menu',
+    'Se solicita cambiar el color del menu principal para mejorar la lectura.',
+    'baja',
+    id_usuario
+FROM usuario
+WHERE username = 'lucia';
