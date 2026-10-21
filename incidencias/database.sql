@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS incidencia (
 INSERT INTO usuario (username, password, nombre)
 VALUES
     ('pedro', 'Pedro123', 'Pedro Lopez'),
-    ('maria', 'Maria123', 'Maria Torres');
+    ('maria', 'Maria123', 'Maria Torres'),
     ('carlos',  'Carlos123',  'Carlos Mendoza'),
     ('ana',     'Ana123',     'Ana Ruiz'),
     ('luis',    'Luis123',    'Luis Paredes'),
