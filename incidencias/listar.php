@@ -10,8 +10,7 @@ if (!isset($_SESSION['id_usuario'])) {
 require_once "conexion.php";
 
 $idUsuario = $_SESSION['id_usuario'];
-$nombreUsuario = $_SESSION['nombre'];
-
+$nombreUsuario = $_SESSION['nombre_usuario'];
 $resultado = $baseDatos->listarIncidencias($idUsuario);
 
 ?>
@@ -21,7 +20,7 @@ $resultado = $baseDatos->listarIncidencias($idUsuario);
     </head>
     <body>
         <h1>Sistema de Incidencias</h1>
-        <h3>Bienvenido: <?php echo $_SESSION['nombre'] ?> </h3>
+        <h3>Bienvenido: <?php echo $_SESSION['nombre_usuario'] ?> </h3>
          <h2> Lista de Incidencias </h2>
          
          <ul>

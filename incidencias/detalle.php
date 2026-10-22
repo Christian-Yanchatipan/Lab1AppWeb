@@ -6,7 +6,8 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
 }
 
 session_start();
-if(!isset($_SESSION['nombre']) && !isset($_SESSION['clave'])){
+
+if (!isset($_SESSION['id_usuario'])) {
     header("Location: index.php");
     exit;
 }
@@ -31,7 +32,7 @@ $incidencia = $resultado->fetch_assoc();
     </head>
     <body>
         <h1>Detalle de Incidencia</h1>
-        <h3>Bienvenido: <?php echo $_SESSION['nombre'] ?> </h3>
+        <h3>Bienvenido: <?php echo $_SESSION['nombre_usuario'] ?> </h3>
         <p><a href="cerrarsesion.php">Cerrar Sesion</a></p>
         <hr>
  
