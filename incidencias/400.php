@@ -6,6 +6,13 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
+session_start();
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: index.php");
+    exit;
+}
+
 http_response_code(400);
 ?>
 
