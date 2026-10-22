@@ -39,7 +39,7 @@ $resultado = $baseDatos->listarIncidencias($idUsuario);
 
         <h2>Añadir nueva Incidencia</h2>
         <p><a href="registrar.php">Registrar nueva incidencia</a></p>
-        <p><a href="cerrarsesion.php">Cerrar Sesion</a></p>
+        <p><a href="cerrar_sesion.php">Cerrar Sesion</a></p>
      </body>
 </html>
 
